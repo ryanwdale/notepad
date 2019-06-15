@@ -1,0 +1,26 @@
+{% extends 'layouts/app.html' %}
+{% import 'macros/form.html' as f with context %}
+
+{% block body %}
+
+<form method="post" role="form">
+  {{ form.hidden_tag() }}
+  {% call f.form_group(form.title, css_class='sm-margin-bottom',
+                             autofocus='autofocus') %}
+  {% endcall %}
+  {{ form.body() }}
+
+
+  <div class="row">
+    <div align="center">
+      {{ form.save() }}
+      {{ form.save_evernote() }}
+   </div>
+
+</form>
+
+
+  {{ ckeditor.load() }}
+  {{ ckeditor.config(name='body', height=600) }}
+
+{% endblock %}

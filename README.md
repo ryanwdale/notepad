@@ -1,0 +1,1 @@
+Note taking app built using flask for python. I learned a lot about python, flask and web development in general through building this. A lot of the code came from following tutorials.

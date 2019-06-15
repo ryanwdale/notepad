@@ -1,0 +1,20 @@
+{% extends 'layouts/app.html' %}
+
+{% block body %}
+
+   {% if notes %}
+    <div class="col-md-20 col-md-offset-20 well">
+    <table cellpadding="5" >
+    {% for note in notes %}
+      <tr>
+        <td style="padding:0 20px;"> <h3> <a href="/edit-note/{{ note.id }}">{{note.title}} </a> </h3></td>
+        <td style="padding:0 15px;"> <a href="/edit-note/{{ note.id }}" class="btn btn-default btn-block">Edit</a></td>
+        <td style="padding:0 15px;"> <a href="/delete-note/{{ note.id }}" class="btn btn-primary btn-block">Delete</a></td>
+      </tr>
+    {% endfor %}
+    </table>
+    </div>
+  {% else %}
+    <h3>You haven't saved any notes</h3>
+  {% endif %}
+{% endblock %}
