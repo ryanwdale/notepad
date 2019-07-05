@@ -33,5 +33,5 @@ flask-script
 flask-migrate
 
 #evernote API
-evernote==1.25.2
+evernote
 
