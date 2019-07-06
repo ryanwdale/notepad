@@ -15,7 +15,7 @@ from lib.util_sqlalchemy import ResourceMixin, AwareDateTime
 from notepad.extensions import db
 
 
-class Notes(UserMixin, ResourceMixin, db.Model):
+class Notes(ResourceMixin, db.Model):
     __tablename__ = 'notes'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(500))

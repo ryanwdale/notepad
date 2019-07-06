@@ -25,8 +25,8 @@ CELERY_TASK_LIST = [
 ]
 
 
-DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+# DATABASE_URL = os.environ['DATABASE_URL']
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 
 def create_celery_app(app=None):
@@ -93,7 +93,7 @@ def extensions(app):
     csrf.init_app(app)
     heroku.init_app(app)
     login_manager.init_app(app)
-    migrate.init_app(app, db)
+    db.init_app(app)
 
     return None
 

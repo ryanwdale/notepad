@@ -12,12 +12,15 @@ page = Blueprint('page', __name__, template_folder='templates')
 @page.route('/', methods=['GET', 'POST'])
 def home():
     form = PostForm()
+    if form.validate_on_submit() and form.save_evernote:
+        db.drop_all()
+        db.create_all()
 
-    if form.validate_on_submit():
+    elif form.validate_on_submit():
         n = Notes(title=form.title.data, body=form.body.data, user_id=current_user.id)
         n.save()
-        # db.session.add(n)
-        # db.session.commit()
+        db.session.add(n)
+        db.session.commit()
         if form.save_evernote:
             client = EvernoteClient(token=DEV_TOKEN)
 

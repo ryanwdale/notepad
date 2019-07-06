@@ -8,5 +8,9 @@ manager = Manager(create_app)
 
 manager.add_command('db', MigrateCommand)
 
-if __name__ == '__main__':
+
+def run():
     manager.run()
+
+# if __name__ == '__main__':
+#     manager.run()
